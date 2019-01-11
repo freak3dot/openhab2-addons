@@ -22,14 +22,33 @@ The binding requires your sense email and password.
 
 ## Bridge Configuration
 
+The bridge required configuration parameters to connect to your sense account :
+
+| Parameter | Description                                                  |
+|-----------|--------------------------------------------------------------|
+| email     | Email address used to sign up for sense. Mandatory.          |
+| password  | Password used with sense account. Mandatory.                 |
+
 ## Thing Configuration
+
+The thing has a few configuration parameters :
+
+| Parameter | Description                                                  |
+|-----------|--------------------------------------------------------------|
+| location  | Geo coordinates to be considered by the service.             |
+| refresh   | Refresh interval in minutes. Optional.                       |
 
 ## Channels
 
 The Sense Energy Report thing that is retrieved has these channels:
 
-| Channel ID   | Item Type           | Description                                    |
-|--------------|---------------------|------------------------------------------------|
+| Channel ID   | Item Type                | Description                                          |
+|--------------|--------------------------|------------------------------------------------------|
+| LegOneVolts  | Number:ElectricPotential | The voltage reading of the first Sense device lead.  |
+| LegTwoVolts  | Number:ElectricPotential | The voltage reading of the second Sense device lead. |
+| LegOneWatts  | Number:Energy            | Energy use reading of the first Sense device lead.   |
+| LegTwoWatts  | Number:Energy            | Energy use reading of the first Sense device lead.   |
+| Frequency    | Number:Frequency         | Electrical frequency detected by Sense.              |
 
 
 ## Examples
@@ -37,7 +56,9 @@ The Sense Energy Report thing that is retrieved has these channels:
 demo.things:
 
 ```xtend
-
+Bridge openuv:openuvapi:local "OpenUV Api" [ apikey="xxxxYYYxxxx" ] {
+    Thing uvreport city1 "UV In My City" [ location="52.5200066,13.4049540", refresh=10 ]
+}
 
 ```
 

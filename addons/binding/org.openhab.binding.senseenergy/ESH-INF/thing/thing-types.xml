@@ -37,13 +37,13 @@
 		</description>
 
 		<channels>
-			<channel id="LegOneVolts" typeId="Number" />
-			<channel id="LegTwoVolts" typeId="Number" />
-			<channel id="LegOneWatts" typeId="Number" />
-			<channel id="LegTwoWatts" typeId="Number" />
-			<channel id="Frequency" typeId="Number" />
+			<channel id="LegOneVolts" typeId="LegOneVolts" />
+			<channel id="LegTwoVolts" typeId="LegTwoVolts" />
+			<channel id="LegOneWatts" typeId="LegOneWatts" />
+			<channel id="LegTwoWatts" typeId="LegTwoWatts" />
+			<channel id="Frequency" typeId="Frequency" />
 		</channels>
-		
+
 		<representation-property>account</representation-property>
 
 		<config-description>
@@ -56,35 +56,35 @@
 	</thing-type>
 	
 	<channel-type id="LegOneVolts">
-		<item-type>Number</item-type>
+		<item-type>Number:ElectricPotential</item-type>
 		<label>Volts Leg 1</label>
 		<description>Volts detected by the first Sense clamp.</description>
 		<state readOnly="true" pattern="%.1f" />
 	</channel-type>
 
 	<channel-type id="LegTwoVolts" advanced="true">
-		<item-type>Number</item-type>
+		<item-type>Number:ElectricPotential</item-type>
 		<label>Volts Leg 2</label>
 		<description>Volts detected by the second Sense clamp.</description>
 		<state readOnly="true" pattern="%.1f" />
 	</channel-type>
 
 	<channel-type id="LegOneWatts">
-		<item-type>Number</item-type>
+		<item-type>Number:Energy</item-type>
 		<label>Watts Leg 1</label>
 		<description>Watts detected by the first Sense clamp.</description>
 		<state readOnly="true" pattern="%d" />
 	</channel-type>
 
 	<channel-type id="LegTwoWatts" advanced="true">
-		<item-type>Number</item-type>
+		<item-type>Number:Energy</item-type>
 		<label>Watts Leg 2</label>
 		<description>Watts detected by the second Sense clamp.</description>
 		<state readOnly="true" pattern="%d" />
 	</channel-type>
 
 	<channel-type id="Frequency" advanced="true">
-		<item-type>Number</item-type>
+		<item-type>Number:Frequency</item-type>
 		<label>Frequency</label>
 		<description>Electrical frequency detected by Sense.</description>
 		<state readOnly="true" pattern="%.1f" />
